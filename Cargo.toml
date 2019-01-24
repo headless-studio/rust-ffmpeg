@@ -11,7 +11,7 @@ repository  = "https://github.com/meh/rust-ffmpeg"
 keywords    = ["audio", "video"]
 
 [features]
-default = ["codec", "device", "filter", "format", "resampling", "software-resampling", "software-scaling"]
+default = ["codec", "device", "filter", "format", "software-resampling", "software-scaling"]
 
 static = ["ffmpeg-sys/static"]
 build  = ["static", "ffmpeg-sys/build"]
@@ -95,5 +95,4 @@ version  = "0.12"
 optional = true
 
 [dependencies.ffmpeg-sys]
-version = "3.3"
-default-features = false
+git = "https://github.com/meh/rust-ffmpeg-sys.git"
