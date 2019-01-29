@@ -5,6 +5,7 @@ use std::ptr;
 
 use super::common::Context;
 use super::destructor;
+use super::io;
 use ffi::*;
 use util::range::Range;
 use {format, Codec, Error, Packet, Stream};
@@ -36,6 +37,17 @@ impl Input {
 impl Input {
     pub fn format(&self) -> format::Input {
         unsafe { format::Input::wrap((*self.as_ptr()).iformat) }
+    }
+
+    pub fn io(&self) -> Option<io::Context> {
+        unsafe {
+            let ptr = (*self.as_ptr()).pb;
+            if ptr.is_null() {
+                None
+            } else {
+                Some(io::Context::wrap(ptr))
+            }
+        }
     }
 
     pub fn video_codec(&self) -> Option<Codec> {
