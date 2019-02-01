@@ -693,7 +693,7 @@ impl Into<AVPixelFormat> for Pixel {
 			Pixel::YUV444P10LE => AV_PIX_FMT_YUV444P10LE,
 			Pixel::YUV422P9BE  => AV_PIX_FMT_YUV422P9BE,
 			Pixel::YUV422P9LE  => AV_PIX_FMT_YUV422P9LE,
-			Pixel::VDA_VLD     => AV_PIX_FMT_VDA_VLD,
+			// Pixel::VDA_VLD     => AV_PIX_FMT_VDA_VLD,
 
 			Pixel::GBRP     => AV_PIX_FMT_GBRP,
 			Pixel::GBRP9BE  => AV_PIX_FMT_GBRP9BE,
@@ -737,7 +737,7 @@ impl Into<AVPixelFormat> for Pixel {
 
 			Pixel::YVYU422 => AV_PIX_FMT_YVYU422,
 
-			Pixel::VDA => AV_PIX_FMT_VDA,
+			// Pixel::VDA => AV_PIX_FMT_VDA,
 
 			Pixel::YA16BE => AV_PIX_FMT_YA16BE,
 			Pixel::YA16LE => AV_PIX_FMT_YA16LE,
@@ -800,7 +800,7 @@ impl Into<AVPixelFormat> for Pixel {
 			Pixel::VIDEOTOOLBOX => AV_PIX_FMT_VIDEOTOOLBOX,
 
 			// --- defaults
-			Pixel::XVMC   => AV_PIX_FMT_XVMC,
+			// Pixel::XVMC   => AV_PIX_FMT_XVMC,
 			Pixel::Y400A  => AV_PIX_FMT_Y400A,
 			Pixel::GRAY8A => AV_PIX_FMT_GRAY8A,
 			Pixel::GBR24P => AV_PIX_FMT_GBR24P,
