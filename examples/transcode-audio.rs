@@ -1,3 +1,4 @@
+extern crate ffmpeg;
 use std::env;
 use std::path::Path;
 

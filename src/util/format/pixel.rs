@@ -113,7 +113,7 @@ pub enum Pixel {
 	YUV444P10LE,
 	YUV422P9BE,
 	YUV422P9LE,
-	VDA_VLD,
+	// VDA_VLD,
 
 	GBRP,
 	GBRP9BE,
@@ -157,7 +157,7 @@ pub enum Pixel {
 
 	YVYU422,
 
-	VDA,
+	// VDA,
 
 	YA16BE,
 	YA16LE,
@@ -458,7 +458,7 @@ impl From<AVPixelFormat> for Pixel {
 			AV_PIX_FMT_YUV444P10LE => Pixel::YUV444P10LE,
 			AV_PIX_FMT_YUV422P9BE  => Pixel::YUV422P9BE,
 			AV_PIX_FMT_YUV422P9LE  => Pixel::YUV422P9LE,
-			AV_PIX_FMT_VDA_VLD     => Pixel::VDA_VLD,
+			// AV_PIX_FMT_VDA_VLD     => Pixel::VDA_VLD,
 
 			AV_PIX_FMT_GBRP     => Pixel::GBRP,
 			AV_PIX_FMT_GBRP9BE  => Pixel::GBRP9BE,
@@ -502,7 +502,7 @@ impl From<AVPixelFormat> for Pixel {
 
 			AV_PIX_FMT_YVYU422 => Pixel::YVYU422,
 
-			AV_PIX_FMT_VDA => Pixel::VDA,
+			// AV_PIX_FMT_VDA => Pixel::VDA,
 
 			AV_PIX_FMT_YA16BE => Pixel::YA16BE,
 			AV_PIX_FMT_YA16LE => Pixel::YA16LE,
@@ -800,10 +800,11 @@ impl Into<AVPixelFormat> for Pixel {
 			Pixel::VIDEOTOOLBOX => AV_PIX_FMT_VIDEOTOOLBOX,
 
 			// --- defaults
-			// Pixel::XVMC   => AV_PIX_FMT_XVMC,
-			Pixel::Y400A  => AV_PIX_FMT_Y400A,
-			Pixel::GRAY8A => AV_PIX_FMT_GRAY8A,
-			Pixel::GBR24P => AV_PIX_FMT_GBR24P,
+			#[cfg(feature = "ff_api_xvmc")]
+			Pixel::XVMC   => AV_PIX_FMT_XVMC,
+			Pixel::Y400A  => AV_PIX_FMT_YA8,
+			Pixel::GRAY8A => AV_PIX_FMT_YA8,
+			Pixel::GBR24P => AV_PIX_FMT_GBRP,
 
 			Pixel::RGB32   => AV_PIX_FMT_RGB32,
 			Pixel::RGB32_1 => AV_PIX_FMT_RGB32_1,

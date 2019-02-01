@@ -231,7 +231,7 @@ pub enum Id {
 	YLC,
 
 	// various PCM "codecs"
-	PCM_S16LE,
+	// PCM_S16LE,
 	PCM_S16BE,
 	PCM_U16LE,
 	PCM_U16BE,
@@ -414,7 +414,7 @@ pub enum Id {
 	DST,
 
 	// subtitle codecs
-	DVD_SUBTITLE,
+	// DVD_SUBTITLE,
 	DVB_SUBTITLE,
 	TEXT,
 	XSUB,
@@ -441,7 +441,7 @@ pub enum Id {
 	HDMV_TEXT_SUBTITLE,
 
 	// other specific kind of codecs (generally used for attachments)
-	TTF,
+	// TTF,
 
 	SCTE_35,
 	BINTEXT,
@@ -712,7 +712,7 @@ impl From<AVCodecID> for Id {
 			AV_CODEC_ID_YLC           => Id::YLC,
 
 			/* various PCM "codecs" */
-			AV_CODEC_ID_PCM_S16LE                   => Id::PCM_S16LE,
+			// AV_CODEC_ID_PCM_S16LE                   => Id::PCM_S16LE,
 			AV_CODEC_ID_PCM_S16BE                   => Id::PCM_S16BE,
 			AV_CODEC_ID_PCM_U16LE                   => Id::PCM_U16LE,
 			AV_CODEC_ID_PCM_U16BE                   => Id::PCM_U16BE,
@@ -894,7 +894,7 @@ impl From<AVCodecID> for Id {
 			AV_CODEC_ID_DST                  => Id::DST,
 
 			/* subtitle codecs */
-			AV_CODEC_ID_DVD_SUBTITLE       => Id::DVD_SUBTITLE,
+			// AV_CODEC_ID_DVD_SUBTITLE       => Id::DVD_SUBTITLE,
 			AV_CODEC_ID_DVB_SUBTITLE       => Id::DVB_SUBTITLE,
 			AV_CODEC_ID_TEXT               => Id::TEXT,
 			AV_CODEC_ID_XSUB               => Id::XSUB,
@@ -921,7 +921,7 @@ impl From<AVCodecID> for Id {
 			AV_CODEC_ID_HDMV_TEXT_SUBTITLE => Id::HDMV_TEXT_SUBTITLE,
 
 			/* other specific kind of codecs (generally used for attachments) */
-			AV_CODEC_ID_TTF       => Id::TTF,
+			// AV_CODEC_ID_TTF       => Id::TTF,
 
 			AV_CODEC_ID_SCTE_35   => Id::SCTE_35,
 			AV_CODEC_ID_BINTEXT   => Id::BINTEXT,
@@ -1182,7 +1182,7 @@ impl Into<AVCodecID> for Id {
 			Id::YLC           => AV_CODEC_ID_YLC,
 
 			/* various PCM "codecs" */
-			Id::PCM_S16LE                   => AV_CODEC_ID_PCM_S16LE,
+			// Id::PCM_S16LE                   => AV_CODEC_ID_FIRST_AUDIO,
 			Id::PCM_S16BE                   => AV_CODEC_ID_PCM_S16BE,
 			Id::PCM_U16LE                   => AV_CODEC_ID_PCM_U16LE,
 			Id::PCM_U16BE                   => AV_CODEC_ID_PCM_U16BE,
@@ -1249,7 +1249,7 @@ impl Into<AVCodecID> for Id {
 			Id::ADPCM_G722            => AV_CODEC_ID_ADPCM_G722,
 			Id::ADPCM_IMA_APC         => AV_CODEC_ID_ADPCM_IMA_APC,
 			Id::ADPCM_VIMA            => AV_CODEC_ID_ADPCM_VIMA,
-			// Id::VIMA                  => AV_CODEC_ID_VIMA,
+			Id::VIMA                  => AV_CODEC_ID_ADPCM_VIMA,
 
 			Id::ADPCM_AFC             => AV_CODEC_ID_ADPCM_AFC,
 			Id::ADPCM_IMA_OKI         => AV_CODEC_ID_ADPCM_IMA_OKI,
@@ -1365,7 +1365,7 @@ impl Into<AVCodecID> for Id {
 			Id::DST                  => AV_CODEC_ID_DST,
 
 			/* subtitle codecs */
-			Id::DVD_SUBTITLE       => AV_CODEC_ID_DVD_SUBTITLE,
+			// Id::DVD_SUBTITLE       => AV_CODEC_ID_FIRST_SUBTITLE,
 			Id::DVB_SUBTITLE       => AV_CODEC_ID_DVB_SUBTITLE,
 			Id::TEXT               => AV_CODEC_ID_TEXT,
 			Id::XSUB               => AV_CODEC_ID_XSUB,
@@ -1392,7 +1392,7 @@ impl Into<AVCodecID> for Id {
 			Id::HDMV_TEXT_SUBTITLE => AV_CODEC_ID_HDMV_TEXT_SUBTITLE,
 
 			/* other specific kind of codecs (generally used for attachments) */
-			Id::TTF       => AV_CODEC_ID_TTF,
+			// Id::TTF       => AV_CODEC_ID_FIRST_UNKNOWN,
 
 			Id::SCTE_35   => AV_CODEC_ID_SCTE_35,
 			Id::BINTEXT   => AV_CODEC_ID_BINTEXT,
