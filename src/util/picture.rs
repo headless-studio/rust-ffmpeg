@@ -1,5 +1,5 @@
-use ffi::*;
-use ffi::AVPictureType::*;
+use crate::ffi::*;
+use crate::ffi::AVPictureType::*;
 
 #[derive(Eq, PartialEq, Clone, Copy, Debug)]
 pub enum Type {

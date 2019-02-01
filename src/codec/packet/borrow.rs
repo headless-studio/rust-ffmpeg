@@ -2,7 +2,7 @@ use std::mem;
 use std::ptr;
 
 use libc::c_int;
-use ffi::*;
+use crate::ffi::*;
 use super::Ref;
 
 pub struct Borrow<'a> {

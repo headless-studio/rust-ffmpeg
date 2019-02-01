@@ -11,8 +11,8 @@ use std::marker::PhantomData;
 use std::mem;
 
 use libc::{c_uint, uint32_t, size_t};
-use ffi::*;
-use ffi::AVSubtitleType::*;
+use crate::ffi::*;
+use crate::ffi::AVSubtitleType::*;
 
 #[derive(Eq, PartialEq, Clone, Copy, Debug)]
 pub enum Type {

@@ -1,5 +1,5 @@
 use libc::int64_t;
-use ffi::*;
+use crate::ffi::*;
 use super::Context;
 
 #[derive(PartialEq, Eq, Copy, Clone, Debug)]

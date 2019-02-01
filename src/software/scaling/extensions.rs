@@ -1,5 +1,5 @@
-use util::format;
-use ::{Picture, decoder, Error, frame};
+use crate::util::format;
+use crate::{Picture, decoder, Error, frame};
 use super::{Context, Flags, flag};
 
 impl<'a> Picture<'a> {

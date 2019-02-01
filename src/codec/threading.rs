@@ -1,5 +1,5 @@
 use libc::c_int;
-use ffi::*;
+use crate::ffi::*;
 
 #[derive(Eq, PartialEq, Clone, Copy, Debug)]
 pub struct Config {

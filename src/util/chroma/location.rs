@@ -1,5 +1,5 @@
-use ffi::*;
-use ffi::AVChromaLocation::*;
+use crate::ffi::*;
+use crate::ffi::AVChromaLocation::*;
 
 #[derive(Eq, PartialEq, Clone, Copy, Debug)]
 pub enum Location {

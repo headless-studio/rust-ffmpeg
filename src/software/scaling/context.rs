@@ -1,9 +1,9 @@
 use std::ptr;
 
 use libc::{c_int};
-use ffi::*;
-use ::{Error, frame};
-use ::util::format;
+use crate::ffi::*;
+use crate::{Error, frame};
+use crate::util::format;
 use super::Flags;
 
 #[derive(Eq, PartialEq, Copy, Clone, Debug)]

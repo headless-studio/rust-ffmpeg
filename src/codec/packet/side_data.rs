@@ -1,8 +1,8 @@
 use std::marker::PhantomData;
 use std::slice;
 
-use ffi::*;
-use ffi::AVPacketSideDataType::*;
+use crate::ffi::*;
+use crate::ffi::AVPacketSideDataType::*;
 use super::Packet;
 
 #[derive(Eq, PartialEq, Copy, Clone, Debug)]

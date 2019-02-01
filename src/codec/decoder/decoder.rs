@@ -1,10 +1,10 @@
 use std::ptr;
 use std::ops::{Deref, DerefMut};
 
-use ffi::*;
-use codec::{Context, traits};
+use crate::ffi::*;
+use crate::codec::{Context, traits};
 use super::{Opened, Video, Audio, Subtitle, Conceal, Check};
-use ::{Error, Discard, Rational, Dictionary};
+use crate::{Error, Discard, Rational, Dictionary};
 
 pub struct Decoder(pub Context);
 

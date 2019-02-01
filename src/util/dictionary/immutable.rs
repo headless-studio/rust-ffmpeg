@@ -3,7 +3,7 @@ use std::ptr;
 use std::ffi::{CStr, CString};
 use std::str::from_utf8_unchecked;
 
-use ffi::*;
+use crate::ffi::*;
 use super::{Iter, Owned};
 
 pub struct Ref<'a> {

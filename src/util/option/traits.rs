@@ -3,10 +3,10 @@
 use std::mem;
 use std::ffi::CString;
 
-use ffi::*;
+use crate::ffi::*;
 use libc::{c_void, c_int, int64_t};
-use ::{Error, Rational, ChannelLayout};
-use util::format;
+use crate::{Error, Rational, ChannelLayout};
+use crate::util::format;
 
 macro_rules! check {
 	($expr:expr) => (

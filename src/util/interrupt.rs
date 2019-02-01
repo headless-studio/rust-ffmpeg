@@ -1,7 +1,7 @@
 use std::panic;
 use std::process;
 
-use ffi::*;
+use crate::ffi::*;
 use libc::{c_void, c_int};
 
 pub struct Interrupt {

@@ -2,9 +2,9 @@ use std::ptr;
 use std::rc::Rc;
 
 use libc::c_int;
-use ffi::*;
-use ::media;
-use ::{Codec, Error};
+use crate::ffi::*;
+use crate::media;
+use crate::{Codec, Error};
 use super::{Flags, Id, Debug, Compliance, threading, Parameters};
 use super::decoder::Decoder;
 use super::encoder::Encoder;

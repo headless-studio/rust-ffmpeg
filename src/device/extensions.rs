@@ -1,10 +1,10 @@
 use std::ptr;
 use std::marker::PhantomData;
 
-use ffi::*;
-use ::Error;
-use ::format::context::common::Context;
-use ::device;
+use crate::ffi::*;
+use crate::Error;
+use crate::format::context::common::Context;
+use crate::device;
 use libc::c_int;
 
 impl Context {

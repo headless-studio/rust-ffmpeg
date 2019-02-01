@@ -2,11 +2,11 @@ use std::ops::{Deref, DerefMut};
 use std::ptr;
 
 use libc::c_int;
-use ffi::*;
+use crate::ffi::*;
 
 use super::Encoder as Super;
-use ::{Error, Dictionary};
-use codec::{traits, Context};
+use crate::{Error, Dictionary};
+use crate::codec::{traits, Context};
 
 pub struct Subtitle(pub Super);
 
@@ -83,7 +83,7 @@ impl AsMut<Context> for Subtitle {
 pub struct Encoder(pub Subtitle);
 
 impl Encoder {
-	pub fn encode(&mut self, subtitle: &::Subtitle, out: &mut [u8]) -> Result<bool, Error> {
+	pub fn encode(&mut self, subtitle: &crate::Subtitle, out: &mut [u8]) -> Result<bool, Error> {
 		unsafe {
 			match avcodec_encode_subtitle(self.0.as_mut_ptr(), out.as_mut_ptr(), out.len() as c_int, subtitle.as_ptr()) {
 				e if e < 0 => Err(Error::from(e)),

@@ -1,5 +1,5 @@
 use libc::c_int;
-use ffi::*;
+use crate::ffi::*;
 
 bitflags! {
 	pub struct Conceal: c_int {

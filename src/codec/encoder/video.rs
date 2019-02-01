@@ -2,12 +2,12 @@ use std::ops::{Deref, DerefMut};
 use std::ptr;
 
 use libc::{c_int, c_float};
-use ffi::*;
+use crate::ffi::*;
 
 use super::Encoder as Super;
 use super::{MotionEstimation, Prediction, Comparison, Decision};
-use ::{color, packet, Error, Rational, Dictionary, frame, format};
-use codec::{traits, Context};
+use crate::{color, packet, Error, Rational, Dictionary, frame, format};
+use crate::codec::{traits, Context};
 
 pub struct Video(pub Super);
 

@@ -3,9 +3,9 @@ use std::slice;
 use std::ops::{Deref, DerefMut};
 
 use libc::{c_int, int64_t, c_ulonglong};
-use ffi::*;
-use ::ChannelLayout;
-use ::util::format;
+use crate::ffi::*;
+use crate::ChannelLayout;
+use crate::util::format;
 use super::Frame;
 
 #[derive(PartialEq, Eq)]
@@ -219,11 +219,11 @@ impl DerefMut for Audio {
 
 impl ::std::fmt::Debug for Audio {
 	fn fmt(&self, f: &mut ::std::fmt::Formatter) -> Result<(), ::std::fmt::Error> {
-		try!(f.write_str("ffmpeg::frame::Audio { "));
-		try!(f.write_str(&format!("format: {:?}, ", self.format())));
-		try!(f.write_str(&format!("channels: {:?}, ", self.channels())));
-		try!(f.write_str(&format!("rate: {:?}, ", self.rate())));
-		try!(f.write_str(&format!("samples: {:?} ", self.samples())));
+		r#try!(f.write_str("ffmpeg::frame::Audio { "));
+		r#try!(f.write_str(&format!("format: {:?}, ", self.format())));
+		r#try!(f.write_str(&format!("channels: {:?}, ", self.channels())));
+		r#try!(f.write_str(&format!("rate: {:?}, ", self.rate())));
+		r#try!(f.write_str(&format!("samples: {:?} ", self.samples())));
 		f.write_str("}")
 	}
 }

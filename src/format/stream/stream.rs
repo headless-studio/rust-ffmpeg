@@ -1,9 +1,9 @@
 use libc::c_int;
-use ffi::*;
-use ::codec::{self, packet};
-use ::{Rational, Discard, DictionaryRef};
+use crate::ffi::*;
+use crate::codec::{self, packet};
+use crate::{Rational, Discard, DictionaryRef};
 use super::Disposition;
-use format::context::common::Context;
+use crate::format::context::common::Context;
 
 pub struct Stream<'a> {
 	context: &'a Context,

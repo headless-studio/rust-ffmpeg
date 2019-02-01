@@ -1,7 +1,7 @@
 use std::rc::Rc;
 
-use ffi::*;
-use media;
+use crate::ffi::*;
+use crate::media;
 use super::{Id, Context};
 
 pub struct Parameters {

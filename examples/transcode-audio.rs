@@ -11,8 +11,8 @@ fn filter(spec: &str, decoder: &codec::decoder::Audio, encoder: &codec::encoder:
 	let args = format!("time_base={}:sample_rate={}:sample_fmt={}:channel_layout=0x{:x}",
 		decoder.time_base(), decoder.rate(), decoder.format().name(), decoder.channel_layout().bits());
 
-	try!(filter.add(&filter::find("abuffer").unwrap(), "in", &args));
-	try!(filter.add(&filter::find("abuffersink").unwrap(), "out", ""));
+	r#try!(filter.add(&filter::find("abuffer").unwrap(), "in", &args));
+	r#try!(filter.add(&filter::find("abuffersink").unwrap(), "out", ""));
 
 	{
 		let mut out = filter.get("out").unwrap();
@@ -22,8 +22,8 @@ fn filter(spec: &str, decoder: &codec::decoder::Audio, encoder: &codec::encoder:
 		out.set_sample_rate(encoder.rate());
 	}
 
-	try!(try!(try!(filter.output("in", 0)).input("out", 0)).parse(spec));
-	try!(filter.validate());
+	r#try!(r#try!(r#try!(filter.output("in", 0)).input("out", 0)).parse(spec));
+	r#try!(filter.validate());
 
 	println!("{}", filter.dump());
 
@@ -45,14 +45,14 @@ struct Transcoder {
 
 fn transcoder<P: AsRef<Path>>(ictx: &mut format::context::Input, octx: &mut format::context::Output, path: &P, filter_spec: &str) -> Result<Transcoder, ffmpeg::Error> {
 	let input   = ictx.streams().best(media::Type::Audio).expect("could not find best audio stream");
-	let mut decoder = try!(input.codec().decoder().audio());
-	let codec   = try!(ffmpeg::encoder::find(octx.format().codec(path, media::Type::Audio)).expect("failed to find encoder").audio());
+	let mut decoder = r#try!(input.codec().decoder().audio());
+	let codec   = r#try!(ffmpeg::encoder::find(octx.format().codec(path, media::Type::Audio)).expect("failed to find encoder").audio());
 	let global  = octx.format().flags().contains(ffmpeg::format::flag::GLOBAL_HEADER);
 
-	try!(decoder.set_parameters(input.parameters()));
+	r#try!(decoder.set_parameters(input.parameters()));
 
-	let mut output  = try!(octx.add_stream(codec));
-	let mut encoder = try!(output.codec().encoder().audio());
+	let mut output  = r#try!(octx.add_stream(codec));
+	let mut encoder = r#try!(output.codec().encoder().audio());
 
 	let channel_layout = codec.channel_layouts()
 		.map(|cls| cls.best(decoder.channel_layout().channels()))
@@ -72,10 +72,10 @@ fn transcoder<P: AsRef<Path>>(ictx: &mut format::context::Input, octx: &mut form
 	encoder.set_time_base((1, decoder.rate() as i32));
 	output.set_time_base((1, decoder.rate() as i32));
 
-	let encoder = try!(encoder.open_as(codec));
+	let encoder = r#try!(encoder.open_as(codec));
 	output.set_parameters(&encoder);
 
-	let filter  = try!(filter(filter_spec, &decoder, &encoder));
+	let filter  = r#try!(filter(filter_spec, &decoder, &encoder));
 
 	Ok(Transcoder {
 		stream:  input.index(),

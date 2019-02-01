@@ -2,7 +2,7 @@ use std::ops::{Deref, DerefMut};
 use std::iter::FromIterator;
 use std::ptr;
 
-use ffi::*;
+use crate::ffi::*;
 use super::mutable;
 
 pub struct Owned<'a> {

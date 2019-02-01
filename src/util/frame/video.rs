@@ -3,12 +3,12 @@ use std::slice;
 use std::ops::{Deref, DerefMut};
 
 use libc::c_int;
-use ffi::*;
-use ::Rational;
-use ::util::format;
-use ::util::chroma;
-use ::picture;
-use ::color;
+use crate::ffi::*;
+use crate::Rational;
+use crate::util::format;
+use crate::util::chroma;
+use crate::picture;
+use crate::color;
 use super::Frame;
 
 #[derive(PartialEq, Eq)]

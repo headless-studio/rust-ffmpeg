@@ -5,11 +5,11 @@ use std::ffi::CString;
 
 use libc;
 
-use ffi::*;
-use ::{Error, StreamMut, ChapterMut, Rational, Dictionary, format};
+use crate::ffi::*;
+use crate::{Error, StreamMut, ChapterMut, Rational, Dictionary, format};
 use super::common::Context;
 use super::destructor;
-use codec::traits;
+use crate::codec::traits;
 
 pub struct Output {
 	ptr: *mut AVFormatContext,
@@ -71,7 +71,7 @@ impl Output {
 
 	pub fn add_stream<E: traits::Encoder>(&mut self, codec: E) -> Result<StreamMut, Error> {
 		unsafe {
-			let codec = try!(codec.encoder().ok_or(Error::EncoderNotFound));
+			let codec = r#try!(codec.encoder().ok_or(Error::EncoderNotFound));
 			let ptr   = avformat_new_stream(self.as_mut_ptr(), codec.as_ptr());
 
 			if ptr.is_null() {

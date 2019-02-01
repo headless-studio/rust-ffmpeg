@@ -1,6 +1,6 @@
-use ffi::*;
+use crate::ffi::*;
 use libc::c_int;
-use ::{Frame, Error};
+use crate::{Frame, Error};
 use super::Context;
 
 pub struct Sink<'a> {

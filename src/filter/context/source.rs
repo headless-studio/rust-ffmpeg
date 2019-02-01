@@ -1,7 +1,7 @@
 use std::ptr;
 
-use ffi::*;
-use ::{Error, Frame};
+use crate::ffi::*;
+use crate::{Error, Frame};
 use super::Context;
 
 pub struct Source<'a> {

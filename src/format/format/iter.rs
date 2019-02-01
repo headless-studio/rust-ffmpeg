@@ -1,6 +1,6 @@
 use std::ptr;
 
-use ffi::*;
+use crate::ffi::*;
 use super::{Format, Input, Output};
 
 pub struct Iter {

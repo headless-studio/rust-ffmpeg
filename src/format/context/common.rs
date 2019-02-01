@@ -2,9 +2,9 @@ use std::rc::Rc;
 use std::ptr;
 use std::mem;
 
-use ffi::*;
+use crate::ffi::*;
 use libc::{c_int, c_uint};
-use ::{media, Stream, StreamMut, Chapter, ChapterMut, DictionaryRef};
+use crate::{media, Stream, StreamMut, Chapter, ChapterMut, DictionaryRef};
 use super::destructor::{self, Destructor};
 
 pub struct Context {

@@ -1,5 +1,5 @@
-use util::format;
-use ::{decoder, Error, ChannelLayout, frame};
+use crate::util::format;
+use crate::{decoder, Error, ChannelLayout, frame};
 use super::Context;
 
 impl frame::Audio {

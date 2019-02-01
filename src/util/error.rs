@@ -5,7 +5,7 @@ use std::ffi::CStr;
 use std::str::from_utf8_unchecked;
 
 use libc::c_int;
-use ffi::*;
+use crate::ffi::*;
 
 #[derive(Copy, Clone)]
 pub enum Error {
@@ -125,9 +125,9 @@ impl fmt::Display for Error {
 
 impl fmt::Debug for Error {
 	fn fmt(&self, f: &mut fmt::Formatter) -> Result<(), fmt::Error> {
-		try!(f.write_str("ffmpeg::Error("));
-		try!(f.write_str(&format!("{}: ", AVUNERROR((*self).into()))));
-		try!(fmt::Display::fmt(self, f));
+		r#try!(f.write_str("ffmpeg::Error("));
+		r#try!(f.write_str(&format!("{}: ", AVUNERROR((*self).into()))));
+		r#try!(fmt::Display::fmt(self, f));
 		f.write_str(")")
 	}
 }

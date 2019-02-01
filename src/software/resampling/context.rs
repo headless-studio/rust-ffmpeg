@@ -1,9 +1,9 @@
 use std::ptr;
 
 use libc::{c_int, int64_t};
-use ffi::*;
-use ::util::format;
-use ::{Error, ChannelLayout, frame};
+use crate::ffi::*;
+use crate::util::format;
+use crate::{Error, ChannelLayout, frame};
 use super::Delay;
 
 #[derive(Eq, PartialEq, Copy, Clone)]

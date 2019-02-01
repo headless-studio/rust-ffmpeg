@@ -3,10 +3,10 @@ use std::slice;
 use std::ffi::CStr;
 use std::str::from_utf8_unchecked;
 
-use ffi::*;
-use ffi::AVFrameSideDataType::*;
+use crate::ffi::*;
+use crate::ffi::AVFrameSideDataType::*;
 use super::Frame;
-use ::DictionaryRef;
+use crate::DictionaryRef;
 
 #[derive(Eq, PartialEq, Copy, Clone, Debug)]
 pub enum Type {

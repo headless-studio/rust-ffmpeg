@@ -6,8 +6,8 @@ use std::slice;
 use std::mem;
 
 use libc::{c_int, uint8_t};
-use ffi::*;
-use ffi::AVSampleFormat::*;
+use crate::ffi::*;
+use crate::ffi::AVSampleFormat::*;
 
 #[derive(Eq, PartialEq, Copy, Clone, Debug)]
 pub enum Sample {

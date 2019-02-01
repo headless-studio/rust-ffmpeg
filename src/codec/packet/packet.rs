@@ -3,8 +3,8 @@ use std::mem;
 use std::slice;
 
 use libc::c_int;
-use ffi::*;
-use ::{Error, Rational, format};
+use crate::ffi::*;
+use crate::{Error, Rational, format};
 use super::{flag, Flags, SideData, Ref, Mut, Borrow};
 
 pub struct Packet(AVPacket);

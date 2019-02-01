@@ -3,9 +3,9 @@ use std::slice;
 use std::marker::PhantomData;
 
 use libc::{c_int, size_t};
-use ffi::*;
-use ::format;
-use ::Error;
+use crate::ffi::*;
+use crate::format;
+use crate::Error;
 
 pub struct Picture<'a> {
 	ptr: *mut AVPicture,

@@ -3,7 +3,7 @@ use std::ops::{Add, Sub, Mul, Div};
 use std::fmt;
 
 use libc::{c_int, int64_t};
-use ffi::*;
+use crate::ffi::*;
 
 #[derive(Copy, Clone)]
 pub struct Rational(pub i32, pub i32);

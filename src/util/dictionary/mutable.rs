@@ -2,7 +2,7 @@ use std::ops::Deref;
 use std::marker::PhantomData;
 use std::ffi::CString;
 
-use ffi::*;
+use crate::ffi::*;
 use super::immutable;
 
 pub struct Ref<'a> {

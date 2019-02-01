@@ -1,8 +1,8 @@
 use std::marker::PhantomData;
 
-use ffi::*;
+use crate::ffi::*;
 use libc::c_void;
-use ::{option, format, ChannelLayout};
+use crate::{option, format, ChannelLayout};
 use super::{Source, Sink};
 
 pub struct Context<'a> {

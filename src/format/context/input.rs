@@ -3,11 +3,11 @@ use std::ptr;
 use std::mem;
 use std::ffi::CString;
 
-use ffi::*;
-use ::{Error, Codec, Stream, Packet, format};
+use crate::ffi::*;
+use crate::{Error, Codec, Stream, Packet, format};
 use super::common::Context;
 use super::destructor;
-use util::range::Range;
+use crate::util::range::Range;
 
 pub struct Input {
 	ptr: *mut AVFormatContext,

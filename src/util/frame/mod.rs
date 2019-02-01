@@ -11,8 +11,8 @@ pub mod flag;
 pub use self::flag::Flags;
 
 use libc::c_int;
-use ffi::*;
-use ::{Dictionary, DictionaryRef};
+use crate::ffi::*;
+use crate::{Dictionary, DictionaryRef};
 
 #[derive(PartialEq, Eq, Copy, Clone, Debug)]
 pub struct Packet {

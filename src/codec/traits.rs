@@ -1,5 +1,5 @@
-use ::Codec;
-use codec::{Id, Audio, Video};
+use crate::Codec;
+use crate::codec::{Id, Audio, Video};
 use super::{decoder, encoder};
 
 pub trait Decoder {

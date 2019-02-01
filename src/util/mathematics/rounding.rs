@@ -1,5 +1,5 @@
-use ffi::*;
-use ffi::AVRounding::*;
+use crate::ffi::*;
+use crate::ffi::AVRounding::*;
 
 #[derive(Eq, PartialEq, Clone, Copy, Debug)]
 pub enum Rounding {

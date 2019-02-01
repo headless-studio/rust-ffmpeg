@@ -2,9 +2,9 @@ use std::ptr;
 use std::ffi::{CString, CStr};
 use std::str::from_utf8_unchecked;
 
-use ffi::*;
+use crate::ffi::*;
 use libc::c_int;
-use ::Error;
+use crate::Error;
 use super::{Context, Filter};
 
 pub struct Graph {
@@ -133,7 +133,7 @@ impl<'a> Parser<'a> {
 
 	pub fn input(mut self, name: &str, pad: usize) -> Result<Self, Error> {
 		unsafe {
-			let mut context = try!(self.graph.get(name).ok_or(Error::InvalidData));
+			let mut context = r#try!(self.graph.get(name).ok_or(Error::InvalidData));
 			let input   = avfilter_inout_alloc();
 
 			if input.is_null() {
@@ -160,7 +160,7 @@ impl<'a> Parser<'a> {
 
 	pub fn output(mut self, name: &str, pad: usize) -> Result<Self, Error> {
 		unsafe {
-			let mut context = try!(self.graph.get(name).ok_or(Error::InvalidData));
+			let mut context = r#try!(self.graph.get(name).ok_or(Error::InvalidData));
 			let output  = avfilter_inout_alloc();
 
 			if output.is_null() {

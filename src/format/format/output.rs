@@ -4,8 +4,8 @@ use std::ptr;
 use std::ffi::{CStr, CString};
 use std::str::from_utf8_unchecked;
 
-use ffi::*;
-use {codec, media};
+use crate::ffi::*;
+use crate::{codec, media};
 use super::Flags;
 
 pub struct Output {
