@@ -14,7 +14,7 @@ pub enum Space {
     BT470BG,
     SMPTE170M,
     SMPTE240M,
-    YCOCG,
+    // YCOCG,
     YCGCO,
     BT2020NCL,
     BT2020CL,
@@ -48,7 +48,7 @@ impl From<AVColorSpace> for Space {
             AVCOL_SPC_BT470BG => Space::BT470BG,
             AVCOL_SPC_SMPTE170M => Space::SMPTE170M,
             AVCOL_SPC_SMPTE240M => Space::SMPTE240M,
-            AVCOL_SPC_YCOCG => Space::YCOCG,
+            // AVCOL_SPC_YCOCG => Space::YCOCG,
             AVCOL_SPC_BT2020_NCL => Space::BT2020NCL,
             AVCOL_SPC_BT2020_CL => Space::BT2020CL,
             AVCOL_SPC_SMPTE2085 => Space::SMPTE2085,
@@ -57,6 +57,7 @@ impl From<AVColorSpace> for Space {
             AVCOL_SPC_CHROMA_DERIVED_NCL => Space::ChromaDerivedNCL,
             AVCOL_SPC_CHROMA_DERIVED_CL => Space::ChromaDerivedCL,
             AVCOL_SPC_ICTCP => Space::ICTCP,
+            _ => panic!("Unsupported format..."),
         }
     }
 }
@@ -72,7 +73,7 @@ impl Into<AVColorSpace> for Space {
             Space::BT470BG => AVCOL_SPC_BT470BG,
             Space::SMPTE170M => AVCOL_SPC_SMPTE170M,
             Space::SMPTE240M => AVCOL_SPC_SMPTE240M,
-            Space::YCOCG => AVCOL_SPC_YCOCG,
+            // Space::YCOCG => AVCOL_SPC_YCOCG,
             Space::YCGCO => AVCOL_SPC_YCGCO,
             Space::BT2020NCL => AVCOL_SPC_BT2020_NCL,
             Space::BT2020CL => AVCOL_SPC_BT2020_CL,

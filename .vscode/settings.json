@@ -1,0 +1,14 @@
+{
+    "rust.rustflags": "-Ctarget-feature=+crt-static",
+    "rust.clippy_preference": "opt-in",
+    "rust-client.revealOutputChannelOn": "error",
+    "rust.racer_completion": true,
+    "spellright.language": [
+        "en"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext",
+    ]
+}
