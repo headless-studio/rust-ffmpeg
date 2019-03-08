@@ -28,10 +28,9 @@ pub enum Type {
     ContentLightLevel,
     IccProfile,
 
-    #[cfg(feature = "ffmpeg4")]
-    QPTableProperties,
-    #[cfg(feature = "ffmpeg4")]
-    QPTableData,
+    QpTableProperties,
+    QpTableData,
+    S12MTimecode,
 }
 
 impl Type {
@@ -65,10 +64,9 @@ impl From<AVFrameSideDataType> for Type {
             AV_FRAME_DATA_CONTENT_LIGHT_LEVEL => Type::ContentLightLevel,
             AV_FRAME_DATA_ICC_PROFILE => Type::IccProfile,
 
-            #[cfg(feature = "ffmpeg4")]
-            AV_FRAME_DATA_QP_TABLE_PROPERTIES => Type::QPTableProperties,
-            #[cfg(feature = "ffmpeg4")]
-            AV_FRAME_DATA_QP_TABLE_DATA => Type::QPTableData,
+            AV_FRAME_DATA_QP_TABLE_PROPERTIES => Type::QpTableProperties,
+            AV_FRAME_DATA_QP_TABLE_DATA => Type::QpTableData,
+            AV_FRAME_DATA_S12M_TIMECODE => Type::S12MTimecode,
         }
     }
 }
@@ -95,10 +93,9 @@ impl Into<AVFrameSideDataType> for Type {
             Type::ContentLightLevel => AV_FRAME_DATA_CONTENT_LIGHT_LEVEL,
             Type::IccProfile => AV_FRAME_DATA_ICC_PROFILE,
 
-            #[cfg(feature = "ffmpeg4")]
-            Type::QPTableProperties => AV_FRAME_DATA_QP_TABLE_PROPERTIES,
-            #[cfg(feature = "ffmpeg4")]
-            Type::QPTableData => AV_FRAME_DATA_QP_TABLE_DATA,
+            Type::QpTableProperties => AV_FRAME_DATA_QP_TABLE_PROPERTIES,
+            Type::QpTableData => AV_FRAME_DATA_QP_TABLE_DATA,
+            Type::S12MTimecode => AV_FRAME_DATA_S12M_TIMECODE,
         }
     }
 }

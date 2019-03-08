@@ -10,6 +10,8 @@ pub use self::output::Output;
 #[doc(hidden)]
 pub mod common;
 
+pub mod io;
+
 pub enum Context {
     Input(Input),
     Output(Output),

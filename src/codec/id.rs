@@ -206,6 +206,7 @@ pub enum Id {
     DXV,
     SCREENPRESSO,
     RSCC,
+    AVS2,
 
     Y41P,
     AVRP,
@@ -298,8 +299,6 @@ pub enum Id {
     ADPCM_G722,
     ADPCM_IMA_APC,
     ADPCM_VIMA,
-    #[cfg(not(feature = "ffmpeg4"))]
-    VIMA,
 
     ADPCM_AFC,
     ADPCM_IMA_OKI,
@@ -482,6 +481,19 @@ pub enum Id {
     SVG,
     GDV,
     FITS,
+    APTX,
+    APTX_HD,
+    SBC,
+    IMM4,
+    PROSUMER,
+    MWSC,
+    WCMV,
+    RASC,
+    PCM_VIDC,
+    CODEC2,
+    FIRST_AUDIO,
+    ATRAC9,
+    TTML,
     GREMLIN_DPCM,
     DOLBY_E,
     #[cfg(feature = "ffmpeg4")]
@@ -701,6 +713,7 @@ impl From<AVCodecID> for Id {
             AV_CODEC_ID_DXV => Id::DXV,
             AV_CODEC_ID_SCREENPRESSO => Id::SCREENPRESSO,
             AV_CODEC_ID_RSCC => Id::RSCC,
+            AV_CODEC_ID_AVS2 => Id::AVS2,
 
             AV_CODEC_ID_Y41P => Id::Y41P,
             AV_CODEC_ID_AVRP => Id::AVRP,
@@ -760,6 +773,8 @@ impl From<AVCodecID> for Id {
 
             AV_CODEC_ID_PCM_S64LE => Id::PCM_S64LE,
             AV_CODEC_ID_PCM_S64BE => Id::PCM_S64BE,
+
+            AV_CODEC_ID_PCM_VIDC => Id::PCM_VIDC,
 
             /* various ADPCM codecs */
             AV_CODEC_ID_ADPCM_IMA_QT => Id::ADPCM_IMA_QT,
@@ -974,14 +989,20 @@ impl From<AVCodecID> for Id {
             AV_CODEC_ID_SVG => Id::SVG,
             AV_CODEC_ID_GDV => Id::GDV,
             AV_CODEC_ID_FITS => Id::FITS,
+            AV_CODEC_ID_IMM4 => Id::IMM4,
+            AV_CODEC_ID_PROSUMER => Id::PROSUMER,
+            AV_CODEC_ID_MWSC => Id::MWSC,
+            AV_CODEC_ID_WCMV => Id::WCMV,
+            AV_CODEC_ID_RASC => Id::RASC,
+            AV_CODEC_ID_CODEC2 => Id::CODEC2,
             AV_CODEC_ID_GREMLIN_DPCM => Id::GREMLIN_DPCM,
             AV_CODEC_ID_DOLBY_E => Id::DOLBY_E,
-            #[cfg(feature = "ffmpeg4")]
+
             AV_CODEC_ID_APTX => Id::APTX,
-            #[cfg(feature = "ffmpeg4")]
             AV_CODEC_ID_APTX_HD => Id::APTX_HD,
-            #[cfg(feature = "ffmpeg4")]
             AV_CODEC_ID_SBC => Id::SBC,
+            AV_CODEC_ID_ATRAC9 => Id::ATRAC9,
+            AV_CODEC_ID_TTML => Id::TTML,
         }
     }
 }
@@ -1187,6 +1208,7 @@ impl Into<AVCodecID> for Id {
             Id::DXV => AV_CODEC_ID_DXV,
             Id::SCREENPRESSO => AV_CODEC_ID_SCREENPRESSO,
             Id::RSCC => AV_CODEC_ID_RSCC,
+            Id::AVS2 => AV_CODEC_ID_AVS2,
 
             Id::Y41P => AV_CODEC_ID_Y41P,
             Id::AVRP => AV_CODEC_ID_AVRP,
@@ -1246,6 +1268,7 @@ impl Into<AVCodecID> for Id {
 
             Id::PCM_S64LE => AV_CODEC_ID_PCM_S64LE,
             Id::PCM_S64BE => AV_CODEC_ID_PCM_S64BE,
+            Id::PCM_VIDC => AV_CODEC_ID_PCM_VIDC,
 
             /* various ADPCM codecs */
             Id::ADPCM_IMA_QT => AV_CODEC_ID_ADPCM_IMA_QT,
@@ -1279,8 +1302,6 @@ impl Into<AVCodecID> for Id {
             Id::ADPCM_G722 => AV_CODEC_ID_ADPCM_G722,
             Id::ADPCM_IMA_APC => AV_CODEC_ID_ADPCM_IMA_APC,
             Id::ADPCM_VIMA => AV_CODEC_ID_ADPCM_VIMA,
-            #[cfg(not(feature = "ffmpeg4"))]
-            Id::VIMA => AV_CODEC_ID_VIMA,
 
             Id::ADPCM_AFC => AV_CODEC_ID_ADPCM_AFC,
             Id::ADPCM_IMA_OKI => AV_CODEC_ID_ADPCM_IMA_OKI,
@@ -1463,14 +1484,20 @@ impl Into<AVCodecID> for Id {
             Id::SVG => AV_CODEC_ID_SVG,
             Id::GDV => AV_CODEC_ID_GDV,
             Id::FITS => AV_CODEC_ID_FITS,
+            Id::IMM4 => AV_CODEC_ID_IMM4,
+            Id::PROSUMER => AV_CODEC_ID_PROSUMER,
+            Id::MWSC => AV_CODEC_ID_MWSC,
+            Id::WCMV => AV_CODEC_ID_WCMV,
+            Id::RASC => AV_CODEC_ID_RASC,
+            Id::CODEC2 => AV_CODEC_ID_CODEC2,
+            Id::FIRST_AUDIO => AV_CODEC_ID_FIRST_AUDIO,
             Id::GREMLIN_DPCM => AV_CODEC_ID_GREMLIN_DPCM,
             Id::DOLBY_E => AV_CODEC_ID_DOLBY_E,
-            #[cfg(feature = "ffmpeg4")]
             Id::APTX => AV_CODEC_ID_APTX,
-            #[cfg(feature = "ffmpeg4")]
             Id::APTX_HD => AV_CODEC_ID_APTX_HD,
-            #[cfg(feature = "ffmpeg4")]
             Id::SBC => AV_CODEC_ID_SBC,
+            Id::ATRAC9 => AV_CODEC_ID_ATRAC9,
+            Id::TTML => AV_CODEC_ID_TTML,
         }
     }
 }

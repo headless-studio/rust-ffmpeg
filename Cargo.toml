@@ -15,9 +15,7 @@ keywords      = ["ffmpeg", "multimedia", "video", "audio"]
 categories    = ["multimedia"]
 
 [features]
-default = ["ffmpeg4", "codec", "device", "filter", "format", "resampling", "software-resampling", "software-scaling"]
-
-ffmpeg4 = []
+default = ["codec", "device", "filter", "format", "software-resampling", "software-scaling"]
 
 static = ["ffmpeg-sys/static"]
 build  = ["static", "ffmpeg-sys/build"]

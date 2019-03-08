@@ -30,6 +30,9 @@ pub enum Type {
     MasteringDisplayMetadata,
     DataSpherical,
     DataNb,
+    DataEncryptionInitInfo,
+    DataEncryptionInfo,
+    DataAFD,
 
     ContentLightLevel,
     A53CC,
@@ -65,6 +68,9 @@ impl From<AVPacketSideDataType> for Type {
             AV_PKT_DATA_MASTERING_DISPLAY_METADATA => Type::MasteringDisplayMetadata,
             AV_PKT_DATA_SPHERICAL => Type::DataSpherical,
             AV_PKT_DATA_NB => Type::DataNb,
+            AV_PKT_DATA_ENCRYPTION_INIT_INFO => Type::DataEncryptionInitInfo,
+            AV_PKT_DATA_ENCRYPTION_INFO => Type::DataEncryptionInfo,
+            AV_PKT_DATA_AFD => Type::DataAFD,
 
             AV_PKT_DATA_CONTENT_LIGHT_LEVEL => Type::ContentLightLevel,
             AV_PKT_DATA_A53_CC => Type::A53CC,
@@ -102,6 +108,9 @@ impl Into<AVPacketSideDataType> for Type {
             Type::MasteringDisplayMetadata => AV_PKT_DATA_MASTERING_DISPLAY_METADATA,
             Type::DataSpherical => AV_PKT_DATA_SPHERICAL,
             Type::DataNb => AV_PKT_DATA_NB,
+            Type::DataEncryptionInitInfo => AV_PKT_DATA_ENCRYPTION_INIT_INFO,
+            Type::DataEncryptionInfo => AV_PKT_DATA_ENCRYPTION_INFO,
+            Type::DataAFD => AV_PKT_DATA_AFD,
 
             Type::ContentLightLevel => AV_PKT_DATA_CONTENT_LIGHT_LEVEL,
             Type::A53CC => AV_PKT_DATA_A53_CC,
