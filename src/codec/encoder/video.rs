@@ -36,6 +36,20 @@ impl Video {
         }
     }
 
+    pub fn open_with_codec<E: traits::Encoder>(mut self, codec: E, , options: Dictionary) -> Result<Encoder, Error> {
+        unsafe {
+            let mut opts = options.disown();
+            if let Some(codec) = codec.encoder() {
+                match avcodec_open2(self.as_mut_ptr(), codec.as_ptr(), &mut opts) {
+                    0 => Ok(Encoder(self)),
+                    e => Err(Error::from(e)),
+                }
+            } else {
+                Err(Error::EncoderNotFound)
+            }
+        }
+    }
+
     #[inline]
     pub fn open_with(mut self, options: Dictionary) -> Result<Encoder, Error> {
         unsafe {
