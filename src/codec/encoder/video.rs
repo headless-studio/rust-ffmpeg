@@ -36,7 +36,7 @@ impl Video {
         }
     }
 
-    pub fn open_with_codec<E: traits::Encoder>(mut self, codec: E, , options: Dictionary) -> Result<Encoder, Error> {
+    pub fn open_with_codec<E: traits::Encoder>(mut self, codec: E, options: Dictionary) -> Result<Encoder, Error> {
         unsafe {
             let mut opts = options.disown();
             if let Some(codec) = codec.encoder() {
