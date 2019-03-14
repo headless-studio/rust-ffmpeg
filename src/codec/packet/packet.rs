@@ -171,7 +171,7 @@ impl Packet {
 
 
     #[inline]
-    pub fn set_position(&mut self, position: isize) {
+    pub fn set_position(&mut self, position: i64) {
         unsafe {
             (*self.as_mut_ptr()).pos = position;
         }
