@@ -157,7 +157,7 @@ impl Packet {
         self.0.duration as i64
     }
 
-        #[inline]
+    #[inline]
     pub fn set_duration(&mut self, duration: i64) {
         unsafe {
             (*self.as_mut_ptr()).duration = duration;
