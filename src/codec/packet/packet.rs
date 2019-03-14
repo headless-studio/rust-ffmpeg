@@ -169,6 +169,14 @@ impl Packet {
         self.0.pos as isize
     }
 
+
+    #[inline]
+    pub fn set_position(&mut self, position: isize) {
+        unsafe {
+            (*self.as_mut_ptr()).pos = position;
+        }
+    }
+
     #[inline]
     pub fn convergence(&self) -> isize {
         self.0.convergence_duration as isize
